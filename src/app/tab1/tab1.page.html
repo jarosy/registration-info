@@ -2,7 +2,7 @@
     <div style="text-align: center">
         <ion-button style="width: 90%; margin: 15px;" (click)="scan()">
             <ion-label>Skanuj dowód</ion-label>
-            <ion-icon slot="start" style="color: white" name="qr-code-outline"></ion-icon>
+            <ion-icon slot="start" style="color: white" name="scan"></ion-icon>
         </ion-button>
     </div>
     <ion-list *ngIf="car">
@@ -70,9 +70,8 @@
             <ion-label class="label-small">Maksymalna masa całkowita:</ion-label>
             {{car.maxWeight}}
         </ion-item>
+        <ion-button (click)="createPdf()" color="secondary">Pobierz PDF</ion-button>
     </ion-list>
-    <ion-button (click)="createPdf()">Create PDF</ion-button>
-    <ion-button (click)="downloadPdf()" color="secondary" [disabled]="!pdfObj">Download PDF</ion-button>
 
 
 </ion-content>

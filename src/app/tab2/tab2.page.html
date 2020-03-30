@@ -1,6 +1,6 @@
 <ion-content [fullscreen]="true">
     <ion-list>
-        <ion-item-sliding *ngIf="let car of cars">
+        <ion-item-sliding *ngFor="let car of cars">
             <ion-item>
                 <ion-label>
                     <h2>{{car.registrationNumber}} - {{car.brand}} {{car.model}}</h2>
@@ -9,7 +9,7 @@
             </ion-item>
             <ion-item-options side="end">
                 <ion-item-option
-                        expandable color="warning" (click)="deleteCar(car.id)">{{ 'synchronize' | translate }}
+                        expandable color="warning" (click)="deleteCar(car.id)">Usuń
                 </ion-item-option>
             </ion-item-options>
         </ion-item-sliding>

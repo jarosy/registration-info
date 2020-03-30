@@ -4,13 +4,12 @@ import PolishVehicleRegistrationCertificateDecoder from 'polish-vehicle-registra
 import {CarStorage} from '../storage/car.storage';
 import {BarcodeScanner} from '@ionic-native/barcode-scanner/ngx';
 import {BarcodeScannerOptions} from '@ionic-native/barcode-scanner';
-import {FileOpener} from '@ionic-native/file-opener/ngx';
 import {Platform} from '@ionic/angular';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
-import { File } from '@ionic-native/file';
-import { FileOpener } from '@ionic-native/file-opener';
+import { File } from '@ionic-native/file/ngx';
+import { FileOpener } from '@ionic-native/file-opener/ngx';
 
 @Component({
     selector: 'app-tab1',
@@ -62,20 +61,27 @@ export class Tab1Page {
     createPdf() {
         var docDefinition = {
             content: [
-                {text: 'REMINDER', style: 'header'},
-                {text: new Date().toTimeString(), alignment: 'right'},
-
-                {text: 'From', style: 'subheader'},
-
-                {text: 'To', style: 'subheader'},
-
-                {text: 'Hello', style: 'story', margin: [0, 20, 0, 20]},
+                {text: 'Dane pojazdu', style: 'header'},
+                {text: new Date().toLocaleTimeString(), alignment: 'right'},
 
                 {
                     ul: [
-                        'Bacon',
-                        'Rips',
-                        'BBQ',
+                        'Numer rejestracyjny: ' + this.car.registrationNumber,
+                        'Marka: ' + this.car.brand,
+                        'Model: ' + this.car.model,
+                        'VIN: ' + this.car.vin,
+                        'Rodzaj pojazdu: ' + this.car.type,
+                        "Rodzaj paliwa: " + this.car.fuel,
+                        "Rok produkcji: " + this.car.productionYear,
+                        "Data pierwszej rejestracji: " + this.car.firstRegistrationDate,
+                        "Pojemność silnika : " + this.car.engineCapacity,
+                        "Moc silnika : " + this.car.enginePower,
+                        "Ilość miejsc : " + this.car.seatsNumber,
+                        "Imię i nazwisko właściciela: " + this.car.ownerName,
+                        "PESEL lub REGON właściciela: " + this.car.ownerPeselOrRegon,
+                        "Masa własna pojazdu : " + this.car.weight,
+                        "Dopuszczalna masa całkowita: " + this.car.okWeight,
+                        "Maksymalna masa całkowita: " + this.car.maxWeight,
                     ]
                 }
             ],
@@ -84,19 +90,10 @@ export class Tab1Page {
                     fontSize: 18,
                     bold: true,
                 },
-                subheader: {
-                    fontSize: 14,
-                    bold: true,
-                    margin: [0, 15, 0, 0]
-                },
-                story: {
-                    italic: true,
-                    alignment: 'center',
-                    width: '50%',
-                }
             }
         }
         this.pdfObj = pdfMake.createPdf(docDefinition);
+        this.downloadPdf();
     }
 
     downloadPdf() {
@@ -105,9 +102,9 @@ export class Tab1Page {
                 var blob = new Blob([buffer], {type: 'application/pdf'});
 
                 // Save the PDF to the data Directory of our App
-                this.file.writeFile(this.file.dataDirectory, 'myletter.pdf', blob, {replace: true}).then(fileEntry => {
+                this.file.writeFile(this.file.dataDirectory, this.car.model + '_' + this.car.registrationNumber +'.pdf', blob, {replace: true}).then(fileEntry => {
                     // Open the PDf with the correct OS tools
-                    this.fileOpener.open(this.file.dataDirectory + 'myletter.pdf', 'application/pdf');
+                    this.fileOpener.open(this.file.dataDirectory + this.car.model + '_' + this.car.registrationNumber +'.pdf', 'application/pdf');
                 })
             });
         } else {
