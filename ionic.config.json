@@ -1,5 +1,7 @@
 {
   "name": "registration-info",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

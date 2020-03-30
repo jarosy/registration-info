@@ -11,16 +11,17 @@ export class Car {
     firstRegistrationDate: string;
     registrationNumber: string;
     vin: string;
-    engineCapacity: number;
-    enginePower: number;
+    engineCapacity: string;
+    enginePower: string;
     ownerName: string;
     ownerPeselOrRegon: string;
-    seatsNumber: number;
-    weight: number;
-    maxWeight: number;
-    okWeight: number;
+    seatsNumber: string;
+    weight: string;
+    maxWeight: string;
+    okWeight: string;
 
     constructor() {
         this.id = UUID.UUID();
+        this.createDate = new Date().getTime();
     }
 }

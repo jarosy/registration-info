@@ -1,76 +1,77 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-    <ion-title>Dane pojazdu</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>Dane pojazdu</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list *ngIf="car">
-    <ion-item>
-      <ion-label class="label-small">Numer rejestracyjny:</ion-label>
-      {{car.registrationNumber}}
-    </ion-item>
-    <ion-item>
-      <ion-label class="label-small">Marka pojazdu:</ion-label>
-      {{car.brand}}
-    </ion-item>
-    <ion-item>
-      <ion-label class="label-small">Model pojazdu:</ion-label>
-      {{car.model}}
-    </ion-item>
-    <ion-item *ngIf="car.type && car.type.length > 0">
-      <ion-label class="label-small">Rodzaj pojazdu:</ion-label>
-      {{car.type}}
-    </ion-item>
-    <ion-item>
-      <ion-label class="label-small">VIN:</ion-label>
-      {{car.vin}}
-    </ion-item>
-    <ion-item>
-      <ion-label class="label-small">Data pierwszej rejestracji:</ion-label>
-      {{car.firstRegistrationDate}}
-    </ion-item>
-    <ion-item>
-      <ion-label class="label-small">Rok produkcji:</ion-label>
-      {{car.productionYear}}
-    </ion-item>
-    <ion-item>
-      <ion-label class="label-small">Numer rejestracyjny:</ion-label>
-      {{car.fuel}}
-    </ion-item>
-    <ion-item>
-      <ion-label class="label-small">Moc Pojazdu:</ion-label>
-      {{car.enginePower}} KW
-    </ion-item>
-    <ion-item>
-      <ion-label class="label-small">Pojemność silnika:</ion-label>
-      {{car.engineCapacity}} cm³
-    </ion-item>
-    <ion-item>
-      <ion-label class="label-small">Ilość miejsc:</ion-label>
-      {{car.seatsNumber}}
-    </ion-item>
-    <ion-item>
-      <ion-label class="label-small">Imię i nazwisko właściciela:</ion-label>
-      {{car.ownerName}}
-    </ion-item>
-    <ion-item>
-      <ion-label class="label-small">PESEL lub REGON właściciela:</ion-label>
-      {{car.ownerPeselOrRegon}}
-    </ion-item>
-    <ion-item>
-      <ion-label class="label-small">Masa własna pojazdu:</ion-label>
-      {{car.weight}} kg
-    </ion-item>
-    <ion-item>
-      <ion-label class="label-small">Dopuszczalna masa całkowita:</ion-label>
-      {{car.okWeight}}
-    </ion-item>
-    <ion-item>
-      <ion-label class="label-small">Maksymalna masa całkowita:</ion-label>
-      {{car.maxWeight}}
-    </ion-item>
+    <ion-list *ngIf="car">
+        <ion-item>
+            <ion-label class="label-small">Numer rejestracyjny:</ion-label>
+            {{car.registrationNumber}}
+        </ion-item>
+        <ion-item>
+            <ion-label class="label-small">Marka pojazdu:</ion-label>
+            {{car.brand}}
+        </ion-item>
+        <ion-item>
+            <ion-label class="label-small">Model pojazdu:</ion-label>
+            {{car.model}}
+        </ion-item>
+        <ion-item *ngIf="car.type && car.type.length > 0">
+            <ion-label class="label-small">Rodzaj pojazdu:</ion-label>
+            {{car.type}}
+        </ion-item>
+        <ion-item>
+            <ion-label class="label-small">VIN:</ion-label>
+            {{car.vin}}
+        </ion-item>
+        <ion-item>
+            <ion-label class="label-small">Data pierwszej rejestracji:</ion-label>
+            {{car.firstRegistrationDate}}
+        </ion-item>
+        <ion-item>
+            <ion-label class="label-small">Rok produkcji:</ion-label>
+            {{car.productionYear}}
+        </ion-item>
+        <ion-item>
+            <ion-label class="label-small">Numer rejestracyjny:</ion-label>
+            {{car.fuel}}
+        </ion-item>
+        <ion-item>
+            <ion-label class="label-small">Moc Pojazdu:</ion-label>
+            {{car.enginePower}} KW
+        </ion-item>
+        <ion-item>
+            <ion-label class="label-small">Pojemność silnika:</ion-label>
+            {{car.engineCapacity}} cm³
+        </ion-item>
+        <ion-item>
+            <ion-label class="label-small">Ilość miejsc:</ion-label>
+            {{car.seatsNumber}}
+        </ion-item>
+        <ion-item>
+            <ion-label class="label-small">Imię i nazwisko właściciela:</ion-label>
+            {{car.ownerName}}
+        </ion-item>
+        <ion-item>
+            <ion-label class="label-small">PESEL lub REGON właściciela:</ion-label>
+            {{car.ownerPeselOrRegon}}
+        </ion-item>
+        <ion-item>
+            <ion-label class="label-small">Masa własna pojazdu:</ion-label>
+            {{car.weight}} kg
+        </ion-item>
+        <ion-item>
+            <ion-label class="label-small">Dopuszczalna masa całkowita:</ion-label>
+            {{car.okWeight}}
+        </ion-item>
+        <ion-item>
+            <ion-label class="label-small">Maksymalna masa całkowita:</ion-label>
+            {{car.maxWeight}}
+        </ion-item>
+    </ion-list>
 </ion-content>

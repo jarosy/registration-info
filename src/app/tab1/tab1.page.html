@@ -71,5 +71,8 @@
             {{car.maxWeight}}
         </ion-item>
     </ion-list>
+    <ion-button (click)="createPdf()">Create PDF</ion-button>
+    <ion-button (click)="downloadPdf()" color="secondary" [disabled]="!pdfObj">Download PDF</ion-button>
+
 
 </ion-content>
