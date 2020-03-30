@@ -64,13 +64,16 @@
         </ion-item>
         <ion-item>
             <ion-label class="label-small">Dopuszczalna masa całkowita:</ion-label>
-            {{car.okWeight}}
+            {{car.okWeight}} kg
         </ion-item>
         <ion-item>
             <ion-label class="label-small">Maksymalna masa całkowita:</ion-label>
-            {{car.maxWeight}}
+            {{car.maxWeight}} kg
         </ion-item>
-        <ion-button (click)="createPdf()" color="secondary">Pobierz PDF</ion-button>
+        <ion-button (click)="createPdf()" style="width: 90%; margin: 15px;" color="secondary">
+            <ion-label>Pobierz PDF</ion-label>
+            <ion-icon slot="start" style="color: white" name="document-text-outline"></ion-icon>
+        </ion-button>
     </ion-list>
 
 

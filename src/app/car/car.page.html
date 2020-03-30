@@ -73,5 +73,9 @@
             <ion-label class="label-small">Maksymalna masa całkowita:</ion-label>
             {{car.maxWeight}}
         </ion-item>
+        <ion-button (click)="createPdf()" style="width: 90%; margin: 15px;" color="secondary">
+            <ion-label>Pobierz PDF</ion-label>
+            <ion-icon slot="start" style="color: white" name="document-text-outline"></ion-icon>
+        </ion-button>
     </ion-list>
 </ion-content>

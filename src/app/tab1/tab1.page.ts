@@ -20,6 +20,8 @@ export class Tab1Page {
     car: Car;
     scannerOptions: BarcodeScannerOptions = {
         formats: 'AZTEC',
+        orientation: 'landscape',
+        showTorchButton: true,
         prompt: 'Umieść kod w prostokącie, aby go zeskanować.'
     };
 
@@ -36,7 +38,7 @@ export class Tab1Page {
         this.barcodeScanner.scan(this.scannerOptions).then(barcodeData => {
             this.car = new Car();
             const decoder = new PolishVehicleRegistrationCertificateDecoder(barcodeData.text);
-            this.car.registrationNumber = decoder.data.numerRejestracyjnyPojazdu.value;
+            this.car.registrationNumber = decoder.data.numerRejestracyjnyPojazdu.value.replace(' ','');
             this.car.vin = decoder.data.numerIdentyfikacyjnyPojazdu.value;
             this.car.brand = decoder.data.markaPojazdu.value;
             this.car.model = decoder.data.modelPojazdu.value;
@@ -62,7 +64,7 @@ export class Tab1Page {
         var docDefinition = {
             content: [
                 {text: 'Dane pojazdu', style: 'header'},
-                {text: new Date().toLocaleTimeString(), alignment: 'right'},
+                {text: new Date().toLocaleString(), alignment: 'right'},
 
                 {
                     ul: [
@@ -90,8 +92,11 @@ export class Tab1Page {
                     fontSize: 18,
                     bold: true,
                 },
+                ul: {
+                    fontSize: 14
+                }
             }
-        }
+        };
         this.pdfObj = pdfMake.createPdf(docDefinition);
         this.downloadPdf();
     }

@@ -1,18 +1,19 @@
 <ion-content [fullscreen]="true">
-    <ion-list>
+    <ion-list *ngIf="cars.length > 0">
         <ion-item-sliding *ngFor="let car of cars">
-            <ion-item>
+            <ion-item (click)="goToCar(car.id)">
                 <ion-label>
                     <h2>{{car.registrationNumber}} - {{car.brand}} {{car.model}}</h2>
                 </ion-label>
-
             </ion-item>
             <ion-item-options side="end">
                 <ion-item-option
-                        expandable color="warning" (click)="deleteCar(car.id)">Usuń
+                        expandable color="danger" (click)="deleteCar(car.id)">Usuń
                 </ion-item-option>
             </ion-item-options>
         </ion-item-sliding>
     </ion-list>
-
+    <div style="margin-top: 100px; text-align: center">
+        <h2 *ngIf="cars.length == 0">Nie zeskanowałeś żadnych pojazdów</h2>
+    </div>
 </ion-content>
